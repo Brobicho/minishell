@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   minishell.h                                      .::    .:/ .      .::   */
+/*   ft_lstadd.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:29:33 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/15 19:27:50 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:19:54 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 15:51:06 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft/libft.h"
-
-void	ft_sigint(int signal);
-void	ft_sigsegv(int signal);
-int		ft_iscommand(char *str);
-int		ft_check_commands(char **str);
-
-#endif
+void	ft_lstadd(t_list **alst, t_list *new)
+{
+	new->next = *alst;
+	*alst = new;
+}

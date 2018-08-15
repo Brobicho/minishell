@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   minishell.h                                      .::    .:/ .      .::   */
+/*   ft_free.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:29:33 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/15 19:27:50 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/04/10 17:46:50 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/08/12 12:10:52 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft/libft.h"
+void	ft_lstfree(t_list *lst)
+{
+	t_list	*tmp;
 
-void	ft_sigint(int signal);
-void	ft_sigsegv(int signal);
-int		ft_iscommand(char *str);
-int		ft_check_commands(char **str);
-
-#endif
+	tmp = lst;
+	while (tmp)
+	{
+		lst = tmp;
+		tmp = tmp->next;
+		free(lst);
+	}
+}

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   minishell.h                                      .::    .:/ .      .::   */
+/*   ft_realloc.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:29:33 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/15 19:27:50 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:02:36 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/10 13:34:54 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft/libft.h"
+void		*ft_realloc(void *mem, size_t size)
+{
+	void		*mem_cpy;
 
-void	ft_sigint(int signal);
-void	ft_sigsegv(int signal);
-int		ft_iscommand(char *str);
-int		ft_check_commands(char **str);
-
-#endif
+	if (!mem || !size || !(mem_cpy = ft_strnew(size)))
+		return (NULL);
+	ft_strcpy(mem_cpy, mem);
+	free(mem);
+	return (mem_cpy);
+}

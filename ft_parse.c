@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   minishell.h                                      .::    .:/ .      .::   */
+/*   ft_parse.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:29:33 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/15 19:27:50 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/08/15 18:54:30 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/08/15 19:58:28 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "minishell.h"
 
-# include "libft/libft.h"
+int		ft_check_commands(char **str)
+{
+	int		i;
 
-void	ft_sigint(int signal);
-void	ft_sigsegv(int signal);
-int		ft_iscommand(char *str);
-int		ft_check_commands(char **str);
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_iscommand(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-#endif
+int		ft_iscommand(char *str)
+{
+	if (!str)
+		return (0);
+	if (!ft_strcmp(str, "cd") || !ft_strcmp(str, "/bin/ls")
+		||!ft_strcmp(str, "echo") || !ft_strcmp(str, "setenv")
+		|| !ft_strcmp(str, "unsetenv") || !ft_strcmp(str, "env"))
+		return (1);
+	return (0);
+}
