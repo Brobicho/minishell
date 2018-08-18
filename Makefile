@@ -6,7 +6,7 @@
 #    By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/08 19:44:04 by brobicho     #+#   ##    ##    #+#        #
-#    Updated: 2018/08/15 20:36:58 by brobicho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/08/18 19:32:59 by brobicho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,7 +21,7 @@ FLAG = -Werror -Wall -Wextra
 
 OBJ = $(SRC_FILES:.c=.o)
 
-SRC_FILES = main.c ft_parse.c ft_signals.c
+SRC_FILES = main.c ft_parse.c ft_signals.c ft_tools.c
 
 HEADER = minishell.h libft/libft.h
 

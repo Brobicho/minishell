@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_tools.c                                       .::    .:/ .      .::   */
+/*   ft_lstmap.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/18 19:27:45 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:46:32 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:19:54 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/04 03:19:54 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int		ft_exec(t_shell *shell, int pid)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int		ret;
+	t_list	*tmp;
+	t_list	*tmp2;
+	t_list	*base;
 
-	if (!pid)
+	tmp2 = NULL;
+	while (lst)
 	{
-		if (ft_check_commands(shell->gnl))
-		{
-			if ((ret = execve(shell->gnl[0], &shell->gnl[0], NULL) == -1))
-			{
-				exit(0);
-				return (ret);
-			}
-		}
+		if ((tmp = ft_lstnew(f(lst)->content, f(lst)->content_size)) == NULL)
+			return (NULL);
+		if (tmp2 != NULL)
+			tmp2->next = tmp;
 		else
-		{
-			ft_putendl("\rCommande inconnue.");
-			return (-1);
-		}
+			base = tmp;
+		lst = lst->next;
+		tmp2 = tmp;
 	}
-	else
-		wait(&ret);
-	return (0);
+	return (base);
 }

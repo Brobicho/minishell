@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_lstins.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:07:19 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:45:53 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/07/25 15:55:10 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 15:55:14 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int			main(int ac, char **av, char **env)
+void	ft_lstins(t_list **lst, t_list *new, size_t index)
 {
-	char	*str;
-	t_shell	*shell;
-	pid_t	pid;
+	t_list *insert;
+	t_list *tmp;
 
-	(void)ac;
-	(void)av;
-	if (!(shell = malloc(sizeof(shell))))
-		return (0);
-	ft_print_tab(env);
-	pid = 0;
-	while (1)
+	if (index == 0)
 	{
-		ft_putstr("\r$> ");
-		get_next_line(0, &str);
-		if (ft_isstrempty(str) < 1)
-			continue ;
-		shell->gnl = ft_strsplit(str, ' ');
-		pid = fork();
-		if (ft_exec(shell, pid) == -1)
-			continue ;
-		signal(SIGINT, ft_sigint);
+		tmp = *lst;
+		*lst = new;
+		(*lst)->next = tmp;
 	}
-	return (0);
+	else
+	{
+		insert = ft_lstat(*lst, index - 1);
+		tmp = insert->next;
+		insert->next = new;
+		insert->next->next = tmp;
+	}
 }

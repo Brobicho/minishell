@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_isstrempty.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:07:19 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:45:53 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/08/12 11:33:20 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/08/12 16:12:10 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int			main(int ac, char **av, char **env)
+int		ft_isstrempty(char *str)
 {
-	char	*str;
-	t_shell	*shell;
-	pid_t	pid;
+	int	i;
 
-	(void)ac;
-	(void)av;
-	if (!(shell = malloc(sizeof(shell))))
-		return (0);
-	ft_print_tab(env);
-	pid = 0;
-	while (1)
+	i = 0;
+	if (!str)
+		return (-1);
+	while (str[i])
 	{
-		ft_putstr("\r$> ");
-		get_next_line(0, &str);
-		if (ft_isstrempty(str) < 1)
-			continue ;
-		shell->gnl = ft_strsplit(str, ' ');
-		pid = fork();
-		if (ft_exec(shell, pid) == -1)
-			continue ;
-		signal(SIGINT, ft_sigint);
+		if (!IS_SP(str[i]))
+			return (1);
+		i++;
 	}
 	return (0);
 }

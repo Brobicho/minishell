@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_strjoin_sep.c                                 .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:07:19 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:45:53 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/07/25 15:55:52 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 15:55:55 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int			main(int ac, char **av, char **env)
+char	*ft_strjoin_sep(char const *s1, char const *sep, char const *s2)
 {
-	char	*str;
-	t_shell	*shell;
-	pid_t	pid;
+	char *str_new;
 
-	(void)ac;
-	(void)av;
-	if (!(shell = malloc(sizeof(shell))))
-		return (0);
-	ft_print_tab(env);
-	pid = 0;
-	while (1)
-	{
-		ft_putstr("\r$> ");
-		get_next_line(0, &str);
-		if (ft_isstrempty(str) < 1)
-			continue ;
-		shell->gnl = ft_strsplit(str, ' ');
-		pid = fork();
-		if (ft_exec(shell, pid) == -1)
-			continue ;
-		signal(SIGINT, ft_sigint);
-	}
-	return (0);
+	if (!(str_new = ft_strnew((ft_strlen(s1) + ft_strlen(s2)
+						+ ft_strlen(sep)))))
+		return (NULL);
+	str_new = ft_strcpy(str_new, s1);
+	str_new = ft_strcat((char *)str_new, sep);
+	str_new = ft_strcat(str_new, s2);
+	return (str_new);
 }

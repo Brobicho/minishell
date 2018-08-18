@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_tools.c                                       .::    .:/ .      .::   */
+/*   ft_strncmp.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/18 19:27:45 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:46:32 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:19:59 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/04 03:19:59 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int		ft_exec(t_shell *shell, int pid)
+int		ft_strncmp(char *s1, char *s2, size_t n)
 {
-	int		ret;
+	unsigned long i;
 
-	if (!pid)
+	i = 0;
+	while (i < n)
 	{
-		if (ft_check_commands(shell->gnl))
-		{
-			if ((ret = execve(shell->gnl[0], &shell->gnl[0], NULL) == -1))
-			{
-				exit(0);
-				return (ret);
-			}
-		}
-		else
-		{
-			ft_putendl("\rCommande inconnue.");
-			return (-1);
-		}
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] == '\0' && s2[i] == '\0')
+			return (0);
+		i++;
 	}
-	else
-		wait(&ret);
 	return (0);
 }

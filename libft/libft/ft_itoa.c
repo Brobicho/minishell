@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.c                                           .::    .:/ .      .::   */
+/*   ft_itoa.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/11 21:07:19 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:45:53 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:19:54 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2018/08/18 19:23:26 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int			main(int ac, char **av, char **env)
+char		*ft_itoa(int n)
 {
-	char	*str;
-	t_shell	*shell;
-	pid_t	pid;
+	int		i;
+	int		pos;
+	char	*res;
 
-	(void)ac;
-	(void)av;
-	if (!(shell = malloc(sizeof(shell))))
-		return (0);
-	ft_print_tab(env);
-	pid = 0;
-	while (1)
+	if (n < 0)
+		pos = -1;
+	else
+		pos = 1;
+	i = ft_nblen(n);
+	if (!(res = (char*)malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	res[i] = '\0';
+	while (--i >= 0)
 	{
-		ft_putstr("\r$> ");
-		get_next_line(0, &str);
-		if (ft_isstrempty(str) < 1)
-			continue ;
-		shell->gnl = ft_strsplit(str, ' ');
-		pid = fork();
-		if (ft_exec(shell, pid) == -1)
-			continue ;
-		signal(SIGINT, ft_sigint);
+		res[i] = ft_abs(n % 10) + 48;
+		n = ft_abs(n / 10);
 	}
-	return (0);
+	if (pos == -1)
+		res[0] = '-';
+	return (res);
 }

@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_tools.c                                       .::    .:/ .      .::   */
+/*   ft_memcmp.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: brobicho <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/08/18 19:27:45 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:46:32 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/04 03:19:55 by brobicho     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/04 03:19:55 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int		ft_exec(t_shell *shell, int pid)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		ret;
+	unsigned char	*s1cpy;
+	unsigned char	*s2cpy;
+	unsigned int	i;
 
-	if (!pid)
+	s1cpy = (unsigned char*)s1;
+	s2cpy = (unsigned char*)s2;
+	i = 0;
+	while (i < n)
 	{
-		if (ft_check_commands(shell->gnl))
-		{
-			if ((ret = execve(shell->gnl[0], &shell->gnl[0], NULL) == -1))
-			{
-				exit(0);
-				return (ret);
-			}
-		}
-		else
-		{
-			ft_putendl("\rCommande inconnue.");
-			return (-1);
-		}
+		if (s1cpy[i] != s2cpy[i])
+			return (s1cpy[i] - s2cpy[i]);
+		i++;
 	}
-	else
-		wait(&ret);
 	return (0);
 }
