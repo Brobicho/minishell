@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/04 03:20:11 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/15 20:03:46 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/18 19:11:43 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,6 +57,7 @@ char			*ft_strrchr(const char *s, int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_isprint(int c);
+int				ft_nblen(int nb);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);
 char			*ft_strnstr(const char *haystack,
