@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/08/18 19:09:40 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:11:11 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/18 19:21:00 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,10 +18,9 @@ int		ft_nblen(int nb)
 	int i;
 
 	i = 1;
-	while (nb / 10)
-	{
+	if (nb < 0)
 		i++;
-		nb /= 10;
-	}
+	while (nb /= 10)
+		i++;
 	return (i);
 }
