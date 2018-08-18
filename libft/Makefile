@@ -6,7 +6,7 @@
 #    By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/08 19:44:04 by brobicho     #+#   ##    ##    #+#        #
-#    Updated: 2018/08/18 19:11:58 by brobicho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/08/18 19:25:32 by brobicho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -26,7 +26,7 @@ SRC_FILES = ft_strcat.c ft_isprint.c ft_putchar.c ft_putnbr.c ft_putstr.c \
 			ft_memcpy.c ft_memset.c ft_strnstr.c ft_strstr.c ft_memchr.c \
 			ft_itoa.c ft_nblen.c ft_strlen.c ft_strdup.c ft_strlcat.c ft_memmove.c \
 			ft_strchr.c ft_strrchr.c ft_strcmp.c ft_strncmp.c ft_isalpha.c \
-			ft_memccpy.c ft_memcmp.c ft_putchar_fd.c ft_isstrempty.c \
+			ft_memccpy.c ft_memcmp.c ft_abs.c ft_putchar_fd.c ft_isstrempty.c \
 			ft_memalloc.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 			ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c \
 			ft_putnbr.c ft_strsplit.c ft_putstr_fd.c ft_putendl_fd.c \
