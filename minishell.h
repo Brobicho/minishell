@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/08/11 21:29:33 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 18:47:03 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/20 13:28:40 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,5 +27,7 @@ typedef struct	s_shell
 	char **gnl;
 	char **envn;
 }				t_shell;
+
+int		ft_exec(t_shell *shell, int pid);
 
 #endif
