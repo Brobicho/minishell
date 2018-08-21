@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/08/18 19:27:45 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/21 14:15:40 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/21 16:09:48 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,7 @@ void	ft_tabfree(char **str)
 		}
 		i++;
 	}
+	free(str);
 }
 
 void	ft_free_everything(t_shell *shell)
@@ -36,8 +37,10 @@ void	ft_free_everything(t_shell *shell)
 	int	i;
 
 	i = 0;
-	ft_tabfree(shell->envn);
-	ft_tabfree(shell->gnl);
+	if (shell->envn)
+		ft_tabfree(shell->envn);
+	if (shell->gnl)
+		ft_tabfree(shell->gnl);
 	if (shell->path)
 	{
 		free(shell->path);
@@ -66,7 +69,7 @@ void	*ft_realloc(void *ptr, size_t size)
 	return (newptr);
 }
 
-char	*ft_getentry(char **str)
+void	ft_getentry(char **str)
 {
 	char *tmp;
 
@@ -74,8 +77,6 @@ char	*ft_getentry(char **str)
 	ft_putstr("\r$> ");
 	signal(SIGINT, ft_sigint);
 	get_next_line(0, str);
-	return (tmp);
-
 }
 
 int		ft_exec(t_shell *shell, int pid, char **envn)
