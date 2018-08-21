@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/04 03:20:11 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/21 12:39:16 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/21 15:06:31 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,7 +60,9 @@ int				ft_abs(int n);
 int				ft_isprint(int c);
 int				ft_nblen(int nb);
 int				ft_isalnum(int c);
+char			*ft_strjoinch(char const *s1, char c);
 int				ft_isascii(int c);
+int				ft_copyuntil(char **dst, char *src, char c);
 char			*ft_strnstr(const char *haystack,
 					const char *needle, size_t len);
 int				ft_isdigit(int c);
