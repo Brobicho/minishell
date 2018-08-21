@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/08/11 21:07:19 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:45:53 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/21 12:49:51 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,14 +28,17 @@ int			main(int ac, char **av, char **env)
 	while (1)
 	{
 		ft_putstr("\r$> ");
+		signal(SIGINT, ft_sigint);
 		get_next_line(0, &str);
 		if (ft_isstrempty(str) < 1)
 			continue ;
-		shell->gnl = ft_strsplit(str, ' ');
+		if (!ft_strcmp(str, "exit"))
+			return (0);
+		shell->gnl = ft_spsplit(str);
+		ft_print_tab(shell->gnl);
 		pid = fork();
 		if (ft_exec(shell, pid) == -1)
 			continue ;
-		signal(SIGINT, ft_sigint);
 	}
 	return (0);
 }

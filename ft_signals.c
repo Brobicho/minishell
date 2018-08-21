@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/08/15 18:59:32 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/15 18:59:57 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/21 12:50:36 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 void	ft_sigint(pid_t signal)
 {
 	(void)signal;
-	ft_putchar('\n');
+	ft_putstr("\n\r$> ");
 }
 
 void	ft_sigsegv(pid_t signal)

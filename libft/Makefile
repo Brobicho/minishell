@@ -6,7 +6,7 @@
 #    By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/08 19:44:04 by brobicho     #+#   ##    ##    #+#        #
-#    Updated: 2018/08/18 19:25:32 by brobicho    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/08/21 12:39:27 by brobicho    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -31,7 +31,7 @@ SRC_FILES = ft_strcat.c ft_isprint.c ft_putchar.c ft_putnbr.c ft_putstr.c \
 			ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c \
 			ft_putnbr.c ft_strsplit.c ft_putstr_fd.c ft_putendl_fd.c \
 			ft_putendl.c ft_putnbr_fd.c ft_realloc.c ft_lstnew.c ft_putnbrn.c \
-			get_next_line.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
+			get_next_line.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_spsplit.c \
 			ft_lstiter.c ft_lstmap.c ft_lstins.c ft_lstat.c ft_lstsort.c \
 			ft_strjoin_sep.c ft_lstfree.c ft_tabfree.c ft_print_tab.c \
 

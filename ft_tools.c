@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/08/18 19:27:45 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:46:32 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/21 11:28:23 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,14 +19,14 @@ int		ft_exec(t_shell *shell, int pid)
 
 	if (!pid)
 	{
-		if (ft_check_commands(shell->gnl))
-		{
+		/*if (ft_check_commands(shell->gnl))
+		{*/
 			if ((ret = execve(shell->gnl[0], &shell->gnl[0], NULL) == -1))
 			{
 				exit(0);
 				return (ret);
 			}
-		}
+		//}
 		else
 		{
 			ft_putendl("\rCommande inconnue.");

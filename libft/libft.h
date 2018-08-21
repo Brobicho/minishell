@@ -6,7 +6,7 @@
 /*   By: brobicho <brobicho@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/04 03:20:11 by brobicho     #+#   ##    ##    #+#       */
-/*   Updated: 2018/08/18 19:25:13 by brobicho    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/08/21 12:39:16 by brobicho    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -91,6 +91,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
+char			**ft_spsplit(char *s);
 void			*ft_realloc(void *mem, size_t size);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
